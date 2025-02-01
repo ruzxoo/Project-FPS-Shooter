@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cap1xdud8s2ht"]
+[gd_scene load_steps=16 format=3 uid="uid://cap1xdud8s2ht"]
 
 [ext_resource type="PackedScene" uid="uid://66vrf7ylvtjx" path="res://worldenviroment/world_environment.tscn" id="2_b3wlf"]
 [ext_resource type="PackedScene" uid="uid://cfpwm8n1eysvr" path="res://player/player.tscn" id="3_j1gdg"]
 [ext_resource type="Texture2D" uid="uid://wa8pma6xwgaa" path="res://worldenviroment/kloppenheim_06_puresky_4k.exr" id="3_nmvvp"]
+[ext_resource type="PackedScene" uid="uid://cu2kdmryhw5xy" path="res://SGUN.blend" id="4_37bkn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ol1x6"]
 
@@ -88,3 +89,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62.2382)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Node3D" type="Node3D" parent="."]
+
+[node name="SGUN" parent="." instance=ExtResource("4_37bkn")]
+transform = Transform3D(0.0375926, 0, 0, 0, 0.0569323, 0, 0, 0, 0.0375926, -0.606347, 2.47115, 2.44554)
