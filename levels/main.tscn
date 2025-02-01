@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cap1xdud8s2ht"]
+[gd_scene load_steps=16 format=3 uid="uid://cap1xdud8s2ht"]
 
+[ext_resource type="Script" path="res://levels/main.gd" id="1_8c5va"]
 [ext_resource type="PackedScene" uid="uid://66vrf7ylvtjx" path="res://worldenviroment/world_environment.tscn" id="2_b3wlf"]
 [ext_resource type="PackedScene" uid="uid://cfpwm8n1eysvr" path="res://player/player.tscn" id="3_j1gdg"]
 [ext_resource type="Texture2D" uid="uid://wa8pma6xwgaa" path="res://worldenviroment/kloppenheim_06_puresky_4k.exr" id="3_nmvvp"]
@@ -32,12 +33,14 @@ sky_material = SubResource("PanoramaSkyMaterial_u526s")
 
 [sub_resource type="Environment" id="Environment_mcroe"]
 background_mode = 2
+background_energy_multiplier = 0.83
 sky = SubResource("Sky_604gc")
 sky_custom_fov = 72.0
 ambient_light_energy = 0.75
 
 [node name="world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.162223, 0)
+script = ExtResource("1_8c5va")
 
 [node name="ground" type="MeshInstance3D" parent="."]
 transform = Transform3D(15.2562, 0, 0, 0, 0.750602, 0, 0, 0, 15.3939, 0, -0.522003, 0)
@@ -86,5 +89,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62.2382)
 
 [node name="Player" parent="." instance=ExtResource("3_j1gdg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="Node3D" type="Node3D" parent="."]
