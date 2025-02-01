@@ -86,5 +86,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62.2382)
 
 [node name="Player" parent="." instance=ExtResource("3_j1gdg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="Node3D" type="Node3D" parent="."]
