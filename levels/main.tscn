@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://cap1xdud8s2ht"]
 
 [ext_resource type="PackedScene" uid="uid://66vrf7ylvtjx" path="res://worldenviroment/world_environment.tscn" id="2_b3wlf"]
-[ext_resource type="PackedScene" uid="uid://cfpwm8n1eysvr" path="res://player/player.tscn" id="3_j1gdg"]
 [ext_resource type="Texture2D" uid="uid://wa8pma6xwgaa" path="res://worldenviroment/kloppenheim_06_puresky_4k.exr" id="3_nmvvp"]
+[ext_resource type="PackedScene" uid="uid://c40o3ly603gu6" path="res://player/playerv2.tscn" id="4_2reue"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ol1x6"]
 
@@ -84,7 +84,7 @@ environment = SubResource("Environment_mcroe")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="ground/WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62.2382)
 
-[node name="Player" parent="." instance=ExtResource("3_j1gdg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
 [node name="Node3D" type="Node3D" parent="."]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("4_2reue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05151, 0)
