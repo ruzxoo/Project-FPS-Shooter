@@ -1,0 +1,88 @@
+[gd_scene load_steps=15 format=3 uid="uid://cap1xdud8s2ht"]
+
+[ext_resource type="PackedScene" uid="uid://66vrf7ylvtjx" path="res://worldenviroment/world_environment.tscn" id="2_b3wlf"]
+[ext_resource type="PackedScene" uid="uid://cfpwm8n1eysvr" path="res://player/player.tscn" id="3_j1gdg"]
+[ext_resource type="Texture2D" uid="uid://wa8pma6xwgaa" path="res://worldenviroment/kloppenheim_06_puresky_4k.exr" id="3_nmvvp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ol1x6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x46qx"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_of0qk"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w88cx"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="PrismMesh" id="PrismMesh_dpqv4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_v0cnr"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.0146517, 0.470697, 0.470697, 0.0735213, 0.352957, 0.47061, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.0146517, 0.470697, -0.470697, 0.5, -0.5, 0.5, -0.0146517, 0.470697, 0.470697, 0.0146517, 0.470697, -0.470697)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w6tte"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2bywf"]
+points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146, 0.498887, 0.171488, 0.951995, 0.469018, -0.125934, 0.952684, -0.483291, 0.499663, -0.953674, -0.00688883, -0.387646, -0.93796, 0.315653, -0.483292, 0.952686, -0.12593, 0.375097, 0.940128, -0.329816, 0.171488, -0.951995, 0.469018, 0.140783, -0.945485, -0.479579, 0.469014, 0.952011, 0.171499, -0.387646, 0.93796, 0.315653, -0.483292, -0.952686, -0.12593, -0.183511, -0.943076, 0.464698, 0.407412, -0.946994, 0.288983, 0.375097, -0.940128, -0.329816, -0.395154, 0.955761, -0.305523, -0.479555, 0.945437, 0.14088, 0.464698, 0.943099, -0.183512, 0.140783, 0.945485, -0.479579, -0.243203, 0.945955, 0.436491, -0.479555, -0.945437, 0.14088, 0.288971, 0.946988, 0.407421, -0.395154, -0.955761, -0.305523, -0.0069906, -0.953641, 0.499658, 0.499663, 0.953674, -0.00688883, -0.271948, 0.943071, -0.419217, 0.464698, -0.943099, -0.183512, -0.125934, -0.952684, -0.483291, 0.315648, 0.937973, -0.387651, 0.469014, -0.952011, 0.171499, 0.407412, 0.946994, 0.288983)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_u526s"]
+panorama = ExtResource("3_nmvvp")
+
+[sub_resource type="Sky" id="Sky_604gc"]
+sky_material = SubResource("PanoramaSkyMaterial_u526s")
+
+[sub_resource type="Environment" id="Environment_mcroe"]
+background_mode = 2
+sky = SubResource("Sky_604gc")
+sky_custom_fov = 72.0
+ambient_light_energy = 0.75
+
+[node name="world" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.162223, 0)
+
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(15.2562, 0, 0, 0, 0.750602, 0, 0, 0, 15.3939, 0, -0.522003, 0)
+mesh = SubResource("BoxMesh_ol1x6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_x46qx")
+
+[node name="box" type="MeshInstance3D" parent="ground"]
+transform = Transform3D(0.0849104, 0, 0, 0, 2.32699, 0, 0, 0, 0.0649608, 0.281028, 1.17694, 0)
+mesh = SubResource("BoxMesh_of0qk")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground/box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/box/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_w88cx")
+
+[node name="ramp" type="MeshInstance3D" parent="ground"]
+transform = Transform3D(0.349607, 0, 0, 0, 1.33226, 0, 0, 0, 0.115402, 0, 0.695446, -0.232598)
+mesh = SubResource("PrismMesh_dpqv4")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground/ramp"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/ramp/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_v0cnr")
+
+[node name="cylinder" type="MeshInstance3D" parent="ground"]
+transform = Transform3D(0.0655471, 0, 0, 0, 1.33226, 0, 0, 0, 0.0649608, -0.255773, 1.86232, -0.00266339)
+mesh = SubResource("CylinderMesh_w6tte")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground/cylinder"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/cylinder/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_2bywf")
+
+[node name="WorldEnvironment" parent="ground" instance=ExtResource("2_b3wlf")]
+environment = SubResource("Environment_mcroe")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ground/WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62.2382)
+
+[node name="Player" parent="." instance=ExtResource("3_j1gdg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
