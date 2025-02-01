@@ -1,7 +1,13 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://c40o3ly603gu6"]
 
 [ext_resource type="Script" path="res://levels/character_body_3d.gd" id="1_rbr66"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://dnoq45yak7bje"]
+
+[ext_resource type="Script" path="res://player/playerv_2.gd" id="1_qadw7"]
+>>>>>>> Stashed changes
 =======
 [gd_scene load_steps=4 format=3 uid="uid://dnoq45yak7bje"]
 
@@ -15,7 +21,11 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="player" type="CharacterBody3D"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 script = ExtResource("1_rbr66")
+=======
+script = ExtResource("1_qadw7")
+>>>>>>> Stashed changes
 =======
 script = ExtResource("1_qadw7")
 >>>>>>> Stashed changes
