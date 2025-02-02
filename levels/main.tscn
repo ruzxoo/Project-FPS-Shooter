@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cap1xdud8s2ht"]
+[gd_scene load_steps=16 format=3 uid="uid://cap1xdud8s2ht"]
 
 [ext_resource type="PackedScene" uid="uid://66vrf7ylvtjx" path="res://worldenviroment/world_environment.tscn" id="2_b3wlf"]
 [ext_resource type="Texture2D" uid="uid://wa8pma6xwgaa" path="res://worldenviroment/kloppenheim_06_puresky_4k.exr" id="3_nmvvp"]
 [ext_resource type="PackedScene" uid="uid://dnoq45yak7bje" path="res://player/playerv2.tscn" id="4_2reue"]
+[ext_resource type="ArrayMesh" uid="uid://dn5cordp1ekvs" path="res://models/SGUN.obj" id="4_s57qr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ol1x6"]
 
@@ -74,6 +75,7 @@ mesh = SubResource("CylinderMesh_w6tte")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ground/cylinder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.093142, 0.0164054, 2.92559)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground/cylinder/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_2bywf")
@@ -87,3 +89,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 62.2382)
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("4_2reue")]
+
+[node name="Sgun" type="MeshInstance3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41857, 0.162223, -4.05919)
+mesh = ExtResource("4_s57qr")
+skeleton = NodePath("../..")
